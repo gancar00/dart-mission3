@@ -1,0 +1,39 @@
+// 1. Buat class bernama BankAccount
+class BankAccount {
+  // 2. Tambahkan property namaPemilik dan saldo
+  String namaPemilik;
+  double saldo;
+
+  // 3. Buat constructor
+  BankAccount(this.namaPemilik, this.saldo);
+
+  // 4. Buat fungsi setor
+  void setor(double jumlah) {
+    saldo += jumlah;
+    print("Setor tunai: Rp $jumlah -> Sukses!");
+    print("Saldo sekarang: Rp $saldo");
+  }
+
+  // 5. Buat fungsi tarik dengan logika if-else
+  void tarik(double jumlah) {
+    if (jumlah > saldo) {
+      double kurang = jumlah - saldo;
+      print("GAGAL: Maaf, saldo kamu kurang Rp $kurang lagi nih!");
+    } else {
+      saldo -= jumlah;
+      print("Sukses! Saldo tersisa: Rp $saldo");
+    }
+  }
+}
+
+void main() {
+  // 6. Di fungsi main, buat satu objek nasabah dan panggil fungsinya
+  BankAccount nasabah = BankAccount("MR Gancar", 1000000.0);
+
+  print("Halo ${nasabah.namaPemilik}!");
+  print("Saldo awal: Rp ${nasabah.saldo}");
+
+  nasabah.setor(500000.0);
+  //nasabah.tarik(2000000.0); // Mencoba tarik melebihi saldo
+  nasabah.tarik(30000.0); // Case Positif
+}
