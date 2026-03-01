@@ -1,0 +1,32 @@
+void main() {
+  // 1. Siapkan variabel String
+  String kata = "KAYAK"; //polindrom
+  //String kata = "KOTAK"; //Nonpolindrom
+  print("Analisis Kata: \"$kata\"");
+
+  // 2. Ubah semua huruf menjadi kecil
+  String kataKecil = kata.toLowerCase();
+
+  // 3. Balikkan kata tersebut
+  String kataDibalik = kataKecil.split('').reversed.join('');
+
+  // 4. Bandingkan kata asli dengan yang dibalik (Status Palindrome)
+  String statusPalindrome = (kataKecil == kataDibalik) ? "IYA!" : "BUKAN";
+
+  // 5. Buat variabel vokal
+  int jumlahVokal = 0;
+
+  // 6. Buat List berisi huruf vokal
+  List<String> listVokal = ['a', 'i', 'u', 'e', 'o'];
+
+  // 7. Gunakan perulangan untuk mengecek setiap huruf
+  for (int i = 0; i < kataKecil.length; i++) {
+    if (listVokal.contains(kataKecil[i])) {
+      jumlahVokal++;
+    }
+  }
+
+  // 8. Run hasil analisisnya
+  print("- Status Palindrome: $statusPalindrome");
+  print("- Jumlah Huruf Vokal: $jumlahVokal");
+}
